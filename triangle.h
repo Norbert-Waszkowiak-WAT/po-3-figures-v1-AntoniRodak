@@ -1,24 +1,35 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
-#include <iostream>
-#include <sstream>
 #include "point.h"
-#include "line.h"
-using namespace std;
+#include <iostream>
 
-class Triangle{
+class Triangle {
 private:
-  Point a;
-  Point b;
-  Point c;
+    Point a;
+    Point b;
+    Point c;
 public:
-Triangle(Point a, Point b, Point c);
-Triangle(const Triangle &other);
-bool equals (const Triangle &other);
-void flip();
-void move (double x, double y);
-double getSurface();
-string toString();
+    Triangle();
 
-}; 
+    Triangle(Point a, Point b, Point c);
+
+    Triangle(const Triangle &other);
+
+    Point getA();
+
+    Point getB();
+
+    Point getC();
+
+    bool equals(const Triangle &other);
+
+    void flip();
+
+    void move(double x, double y);
+
+    double getSurface();
+
+    std::string toString();
+};
+
 #endif

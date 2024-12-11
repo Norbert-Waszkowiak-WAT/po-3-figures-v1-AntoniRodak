@@ -1,25 +1,39 @@
-#ifndef QUADRILATERAL_H
-#define QUADRILATERAL_H
-#include <iostream>
-#include <sstream>
+#ifndef QUADRILATERAL
+#define  QUADRILATERAL
 #include "point.h"
-#include "line.h"
 #include "triangle.h"
-using namespace std;
+#include <iostream>
 
-class Quadrilateral{
+class Quadrilateral {
 private:
-Point a;
-Point b;
-Point c;
-Point d;
+    Point a;
+    Point b;
+    Point c;
+    Point d;
 public:
-Quadrilateral(Point a,Point b,Point c,Point d);
-Quadrilateral(const Quadrilateral &other);
-bool equals (const Quadrilateral &other);
-void flip();
-void move(double x, double y);
-double getSurface();
-string toString();
+    Quadrilateral();
+
+    Quadrilateral(Point a, Point b, Point c, Point d);
+
+    Quadrilateral(const Quadrilateral &other);
+
+    Point getA();
+
+    Point getB();
+
+    Point getC();
+
+    Point getD();
+
+    bool equals(const Quadrilateral &other);
+
+    void flip();
+
+    void move(double x, double y);
+
+    double getSurface();
+    
+    std::string toString();
 };
+
 #endif

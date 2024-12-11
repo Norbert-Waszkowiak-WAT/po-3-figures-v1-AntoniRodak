@@ -1,28 +1,40 @@
 #include "line.h"
-#include <sstream>
+#include <iostream>
+#include <string>
 #include <iomanip>
-#include "point.h"
-#include "point.cpp"
 
-Line::Line(Point a,Point b): a(a), b(b);
+Line::Line(Point a, Point b): a(a), b(b) {};
+Line::Line(const Line &other): a(other.a), b(other.b) {};
 
-Line::Line(Point &other);
-: a(other.a), b(other.b);
-bool Line :: equals(const Line &other){
-  return a.equals(other.a) && b.equals(other.b);
+
+
+bool Line::equals(Figure &other) {
+    Line* otherLine = dynamic_cast<Line*>(&other);
+    if (otherLine == nullptr) {
+        return false;
+    }
+    return a.equals(otherLine -> a) && b.equals(otherLine -> b);
 }
-void Line::flip(){
+
+void Line::flip() {
     a.flip();
     b.flip();
-   
-}
-void Line :: move(double x, double y){
-   a.move(x,y);
-   b.move(x,y);
-   
-   }
-string Line:: toString(){
-    return "Line(" + a.toString() +", " + b.toString()+ ", ")" ;
- }
- 
-#endif
+};
+
+void Line::move(double x, double y) {
+    a.move(x, y);
+    b.move(x, y);
+};
+
+
+string Line::toString() {
+        return "Line(" + a.toString() + ", " + b.toString() + ")";
+};
+
+double Line::getSurface() {return 0.0;};
+std::vector<Point> Line::getPoints()  {
+    return std::vector<Point>{a, b};
+};
+Line* Line::clone() const {
+    return new Line(*this);
+};

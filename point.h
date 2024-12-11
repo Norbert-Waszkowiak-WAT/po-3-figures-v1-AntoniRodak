@@ -1,17 +1,32 @@
-#ifndef UNTITLED1_POINT_H
-#define UNTITLED1_POINT_H
 
-class Point{
-    private:
-        double y;
-        double x;
-    public:
-        Point(double x, double y);
-        bool equals(Point &other);
-        double getX();
-        double getY();
-        void move(double x,double y);
-        void flip();
-        std::string toString();
+#ifndef POINT_H
+#define POINT_H
+#include <iostream>
+#include <string>
+#include <cmath>
+
+class Point {
+private: 
+    double x;
+    double y;
+public:
+    Point();
+
+    Point(double x, double y);
+
+    Point(const Point &other);
+
+    bool equals(const Point &other);
+
+    double getX();
+
+    double getY();
+
+    void flip();
+
+    void move(double x, double y);
+
+    std::string toString();
 };
-    #endif
+
+#endif
